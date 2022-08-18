@@ -86,7 +86,6 @@ ggplot() +
   ggtitle('Point Boundary Plot') + 
   coord_sf()
 
-
 # What is the extent
 st_bbox(lines_HARV)
 st_bbox(point_HARV)
