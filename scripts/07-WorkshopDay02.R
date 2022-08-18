@@ -119,3 +119,29 @@ lines_HARV %>%
   geom_sf(aes(color = factor(OBJECTID)), size = 1.5) +
   ggtitle('NEON Harvard Forest Field Site', subtitle = 'Footpaths') +
   coord_sf()
+
+# Subest out all the boardwalk and stone wall and plot
+
+# Boardwalk 
+lines_HARV %>% 
+  filter(TYPE == 'boardwalk') %>% 
+  ggplot() +
+  geom_sf(aes(color = factor(OBJECTID)), size = 1.5) +
+  ggtitle('NEON Harvard Forest Field Site', subtitle = 'Boardwalk') +
+  coord_sf()
+
+# Stone Wall
+lines_HARV %>% 
+  filter(TYPE == 'stone wall') %>% 
+  ggplot() +
+  geom_sf(aes(color = factor(OBJECTID)), size = 1.5) +
+  ggtitle('NEON Harvard Forest Field Site', subtitle = 'Stone Wall') +
+  coord_sf()
+
+
+
+
+
+
+
+
