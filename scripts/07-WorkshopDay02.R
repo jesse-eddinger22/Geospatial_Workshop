@@ -198,6 +198,7 @@ colnames(state_boundaries)
          fill = "Tower Location",
          color = 'Path Type') +
     coord_sf()
+<<<<<<< HEAD
 
 # add in raster data 
   CHM_HARV <- raster('data/GeospatialWorkshopData/raster/HARV_chmCrop.tif')
@@ -232,3 +233,7 @@ colnames(state_boundaries)
          color = 'Path Type') +
     coord_sf()
   
+=======
+
+
+>>>>>>> 0a76575b9feaa1c7304bf3c883bd0ee4914f627e
