@@ -230,10 +230,38 @@ colnames(state_boundaries)
     labs(title = 'NEON Harvard Forest Field Site with Canopy Height',
          fill = "Tower Location",
          color = 'Path Type') +
-<<<<<<< HEAD
     coord_sf(xlim=st_bbox(CHM_HARV)[c(1,3)],ylim = st_bbox(CHM_HARV)[c(2,4)], crs=st_crs(CHM_HARV))
 
-  
-=======
-    coord_sf()
->>>>>>> 2e6228d4a001abddc5db7b35ed6a020ecef0482f
+# Import data 
+country_boundary_US <- st_read('data/GeospatialWorkshopData/vector/US-Boundary-Dissolved-States.shp')
+
+# plot layers with outline
+# layer order matters here 
+ggplot() + 
+  geom_sf(data=state_boundaries) +
+  geom_sf(data = country_boundary_US,size=2,color='red',fill=NA) +
+  coord_sf()
+
+# add our tower location
+
+# But let's first grab projection data 
+point_HARV_crs <- st_crs(point_HARV)
+point_HARV_crs$proj4string
+
+# lets look at st_crs for state data
+st_crs(state_boundaries)$proj4string
+st_crs(country_boundary_US)$proj4string # okay, different type, maybe that wont matter?
+
+# Plot
+ggplot() + 
+  geom_sf(data=state_boundaries) +
+  geom_sf(data = country_boundary_US,size=2,color='red',fill=NA) +
+  geom_sf(data = point_HARV, shape = 19, color = 'purple') +
+  coord_sf()
+
+# Looks good, but the projection is cringy, we can fix that in coord_sf 
+ggplot() + 
+  geom_sf(data=state_boundaries) +
+  geom_sf(data = country_boundary_US,size=2,color='red',fill=NA) +
+  geom_sf(data = point_HARV, shape = 19, color = 'purple') +
+  coord_sf(crs=5070)

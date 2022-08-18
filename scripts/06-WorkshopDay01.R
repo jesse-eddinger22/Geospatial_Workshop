@@ -399,5 +399,3 @@ plotRGB(RGB_stack_HARV,r=1,g=2,b=3)
 
 # stretch image
 plotRGB(RGB_stack_HARV,r=1,g=2,b=3, stretch='hist',scale=800)
-
-
