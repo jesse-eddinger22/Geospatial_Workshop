@@ -138,7 +138,6 @@ lines_HARV %>%
   ggtitle('NEON Harvard Forest Field Site', subtitle = 'Stone Wall') +
   coord_sf()
 
-<<<<<<< HEAD
 # how many road types are there 
 unique(lines_HARV$TYPE)
 
@@ -189,21 +188,15 @@ colnames(state_boundaries)
     ggtitle('US State Boundaries') +
     coord_sf()
 # Let's plot all of the HARV Vector data together
+  ?pch # add a certain shape, let's do shape 15 for the Tower 
+  
   ggplot()+
     geom_sf(data = aoi_boundary_HARV, fill = 'gray', color = 'gray') +
     geom_sf(data = lines_HARV, aes(color = TYPE)) +
-    geom_sf(data = point_HARV, aes(fill = Sub_Type)) +
+    geom_sf(data = point_HARV, aes(fill = Sub_Type), shape = 15) +
     labs(title = 'NEON Harvard Forest Field Site',
          fill = "Tower Location",
          color = 'Path Type') +
     coord_sf()
-  
-=======
 
 
-
-
-
-
-
->>>>>>> fcb971ff2729fb3f9a19fa20742a2ff838ac90be
