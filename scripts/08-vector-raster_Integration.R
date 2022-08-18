@@ -52,5 +52,6 @@ ggplot() +
   geom_sf(data=plot_locations_sp_HARV) +
   ggtitle('Map of Plot Locations')
 
-
+# Export plot location as a shapefile
+st_write(plot_locations_sp_HARV, 'data/PlotLocations_HARV.shp', driver = "ESRI Shapefile")
 
