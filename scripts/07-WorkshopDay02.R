@@ -232,7 +232,6 @@ colnames(state_boundaries)
          color = 'Path Type') +
     coord_sf(xlim=st_bbox(CHM_HARV)[c(1,3)],ylim = st_bbox(CHM_HARV)[c(2,4)], crs=st_crs(CHM_HARV))
 
-<<<<<<< HEAD
 # Import data 
 country_boundary_US <- st_read('data/GeospatialWorkshopData/vector/US-Boundary-Dissolved-States.shp')
 
@@ -266,5 +265,4 @@ ggplot() +
   geom_sf(data = country_boundary_US,size=2,color='red',fill=NA) +
   geom_sf(data = point_HARV, shape = 19, color = 'purple') +
   coord_sf(crs=5070)
-=======
->>>>>>> 68521ab610d1c0657e657896089f39495627f48a
+
