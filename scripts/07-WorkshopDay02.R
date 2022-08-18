@@ -230,6 +230,10 @@ colnames(state_boundaries)
     labs(title = 'NEON Harvard Forest Field Site with Canopy Height',
          fill = "Tower Location",
          color = 'Path Type') +
+<<<<<<< HEAD
     coord_sf(xlim=st_bbox(CHM_HARV)[c(1,3)],ylim = st_bbox(CHM_HARV)[c(2,4)], crs=st_crs(CHM_HARV))
 
   
+=======
+    coord_sf()
+>>>>>>> 2e6228d4a001abddc5db7b35ed6a020ecef0482f
