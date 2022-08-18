@@ -44,6 +44,7 @@ point_HARV <- st_read('data/GeospatialWorkshopData/vector/HARVtower_UTM18N.shp')
 # what type is this object
 st_geometry_type(lines_HARV)
 str(lines_HARV)
+<<<<<<< HEAD
 ncol(lines_HARV)
 names(lines_HARV)
 head(lines_HARV)
@@ -60,6 +61,33 @@ point_HARV$Ownership
 # Let's look at what the crs is 
 st_crs(lines_HARV)$proj4string
 st_crs(point_HARV)$proj4string
+=======
+
+st_geometry_type(point_HARV)
+str(point_HARV)
+
+# Let's look at what the crs is 
+st_crs(lines_HARV)$proj4string
+st_crs(point_HARV)$proj4string
+
+# What is the extent
+st_bbox(lines_HARV)
+st_bbox(point_HARV)
+
+# Plot the shape of the field site for lines
+ggplot() +
+  geom_sf(data = lines_HARV, size=3, color='black', 
+          fill='cyan1') +
+  ggtitle('Lines Boundary Plot') + 
+  coord_sf()
+
+# Plot for Point
+ggplot() +
+  geom_sf(data = point_HARV, size=3, color='black', 
+          fill='cyan1') +
+  ggtitle('Point Boundary Plot') + 
+  coord_sf()
+>>>>>>> 2d4c92bd2bd9d21cdf3c233e2c93317bdb1fbb45
 
 # What is the extent
 st_bbox(lines_HARV)
