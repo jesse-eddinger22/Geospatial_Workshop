@@ -138,6 +138,7 @@ lines_HARV %>%
   ggtitle('NEON Harvard Forest Field Site', subtitle = 'Stone Wall') +
   coord_sf()
 
+<<<<<<< HEAD
 # how many road types are there 
 unique(lines_HARV$TYPE)
 
@@ -197,3 +198,12 @@ colnames(state_boundaries)
          color = 'Path Type') +
     coord_sf()
   
+=======
+
+
+
+
+
+
+
+>>>>>>> fcb971ff2729fb3f9a19fa20742a2ff838ac90be
