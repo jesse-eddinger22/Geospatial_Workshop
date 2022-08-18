@@ -119,3 +119,81 @@ lines_HARV %>%
   geom_sf(aes(color = factor(OBJECTID)), size = 1.5) +
   ggtitle('NEON Harvard Forest Field Site', subtitle = 'Footpaths') +
   coord_sf()
+
+# Subest out all the boardwalk and stone wall and plot
+
+# Boardwalk 
+lines_HARV %>% 
+  filter(TYPE == 'boardwalk') %>% 
+  ggplot() +
+  geom_sf(aes(color = factor(OBJECTID)), size = 1.5) +
+  ggtitle('NEON Harvard Forest Field Site', subtitle = 'Boardwalk') +
+  coord_sf()
+
+# Stone Wall
+lines_HARV %>% 
+  filter(TYPE == 'stone wall') %>% 
+  ggplot() +
+  geom_sf(aes(color = factor(OBJECTID)), size = 1.5) +
+  ggtitle('NEON Harvard Forest Field Site', subtitle = 'Stone Wall') +
+  coord_sf()
+
+# how many road types are there 
+unique(lines_HARV$TYPE)
+
+# make a plot using custom colors
+road_colors <- c('brown', 'green', 'navy', 'purple')
+line_widths <- c(0.5,1,1.5,2)
+
+# Plot with the new colors
+ggplot() +
+  geom_sf(data = lines_HARV, aes(color = TYPE, size = TYPE)) +
+  scale_color_manual(values = road_colors) +
+  scale_size_manual(values = line_widths) +
+  labs(color='Road Type', title = "NEON Harvard Forest Field Site",
+       subtitle = "Roads and Trails", 
+       size = 'Road Type') +
+  coord_sf()
+
+# Challenge 
+# Create a plot that emphasizes only roads where bikes and horses are allowed
+
+# plot
+lines_show_HARV <- lines_HARV %>% filter(!is.na(BicyclesHo))
+
+ggplot() +
+  geom_sf(data=lines_HARV, size=1) +
+  geom_sf(data = lines_show_HARV, color='magenta', size = 2) +
+  labs(title = 'NEON Harvard Forest Field Site',
+       subtitle = 'Roads Where Bikes and Horses are Allowed') +
+  coord_sf()
+
+# Challenge
+
+# Load in data
+state_boundaries <- st_read('data/GeospatialWorkshopData/vector/US-State-Boundaries-Census-2014.shp')
+
+# check names
+colnames(state_boundaries)
+
+# plot
+  ggplot() +
+  geom_sf(data = state_boundaries, aes(fill=region), size = .05) +
+  ggtitle('US State Boundaries') +
+  coord_sf()
+
+# plot with color
+  ggplot() +
+    geom_sf(data = state_boundaries, aes(color=region), size = 1) +
+    ggtitle('US State Boundaries') +
+    coord_sf()
+# Let's plot all of the HARV Vector data together
+  ggplot()+
+    geom_sf(data = aoi_boundary_HARV, fill = 'gray', color = 'gray') +
+    geom_sf(data = lines_HARV, aes(color = TYPE)) +
+    geom_sf(data = point_HARV, aes(fill = Sub_Type)) +
+    labs(title = 'NEON Harvard Forest Field Site',
+         fill = "Tower Location",
+         color = 'Path Type') +
+    coord_sf()
+  
