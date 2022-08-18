@@ -198,7 +198,6 @@ colnames(state_boundaries)
          fill = "Tower Location",
          color = 'Path Type') +
     coord_sf()
-<<<<<<< HEAD
 
 # add in raster data 
   CHM_HARV <- raster('data/GeospatialWorkshopData/raster/HARV_chmCrop.tif')
@@ -231,9 +230,6 @@ colnames(state_boundaries)
     labs(title = 'NEON Harvard Forest Field Site with Canopy Height',
          fill = "Tower Location",
          color = 'Path Type') +
-    coord_sf()
+    coord_sf(xlim=st_bbox(CHM_HARV)[c(1,3)],ylim = st_bbox(CHM_HARV)[c(2,4)], crs=st_crs(CHM_HARV))
+
   
-=======
-
-
->>>>>>> 0a76575b9feaa1c7304bf3c883bd0ee4914f627e
