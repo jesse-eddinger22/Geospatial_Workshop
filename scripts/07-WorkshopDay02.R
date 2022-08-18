@@ -266,3 +266,18 @@ ggplot() +
   geom_sf(data = point_HARV, shape = 19, color = 'purple') +
   coord_sf(crs=5070)
 
+# Challenge - make this figure with only the northeast layer
+# import NEast
+NE_region <- st_read('data/GeospatialWorkshopData/vector/Boundary-US-State-NEast.shp')
+st_crs(NE_region)$proj4string
+
+# Plot
+ggplot() + 
+  geom_sf(data= NE_region, size = 1, color = 'green') +
+  scale_color_manual(name = "", labels = "State Boundary", values = c("color" = "gray18")) +
+  geom_sf(data = point_HARV, shape = 19, color = 'purple') +
+  scale_shape_manual(name = "", labels = "Fisher Tower", values = c("shape" = 19)) +
+  coord_sf(crs=5070) +
+  theme(legend.background = element_rect(color = NA)) +
+  ggtitle('Tower Location in Harvard Forest in New England')
+
